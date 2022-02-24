@@ -1,0 +1,13 @@
+{
+  "name": "poc-wollok-game-web",
+  "version": "1.0.0",
+  "description": "Proof of concept: Wollok Game Web",
+  "license": "MIT",
+  "scripts": {
+    "start": "http-server -o index.html"
+  },
+  "dependencies": {
+    "http-server": "^14.1.0",
+    "wollok-game-web": "^1.0.6"
+  }
+}
