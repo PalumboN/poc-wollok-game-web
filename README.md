@@ -17,8 +17,12 @@ Este repo cuenta con dos ejemplos que están en distintos html:
 
 ### 📂 index.html
 
-Es el ejemplo que se abre por defecto, acá podés cargar un proyecto de Wollok Game (seleccionar la carpeta raiz) y jugar al juego 🙂
+Es el ejemplo que se abre por defecto, acá podés cargar un proyecto de Wollok Game (seleccionar la carpeta raiz) y jugar al juego.
 
 ### 🧱 blocks.html
 
 Para ir a este ejemplo hay que cambiar la url a mano `blocks.html`, acá podés crear tu juego a partir de un ambiente basado en bloques. Al presionar el botón de Ejecutar se levanta el juego.
+
+## Preguntas o aportes
+
+Si tenés alguna consulta, idea o mejora para comentar no dudes hacerlo en la parte de [Discusiones](https://github.com/PalumboN/poc-wollok-game-web/discussions)
