@@ -1,4 +1,4 @@
-const parent = document.getElementById('game')
+const parentGame = document.getElementById('game')
 
 function isSourceFile(file) { return file.name.endsWith('wlk') }
 function isImageFile(file) { return file.name.endsWith('png') }
@@ -25,5 +25,5 @@ input.onchange = async () => {
     const images = imageFiles.map(buildImage)
     const sources = await Promise.all(sourceFiles.map(buildSource))
     const project = { main, images, sounds, sources }
-    new Game(project).start(parent)
+    new Game(project).start(parentGame)
 }
