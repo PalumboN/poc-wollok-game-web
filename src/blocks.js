@@ -1,5 +1,8 @@
 const parentGame = document.getElementById('game')
 const runButton = document.getElementById('run')
+const saveButton = document.getElementById('save')
+saveButton.onclick = () => { pbUtils.guardarSolucionEnUrl() }
+
 initialButton()
 
 function buildSources() {
@@ -9,10 +12,10 @@ function buildSources() {
     return [{ name, content }]
 }
 
+let images = []
 function start() {
     const main = 'main'
     const sounds = []
-    const images = []
     const sources = buildSources()
     const project = { main, images, sounds, sources }
     new Game(project).start(parentGame)
@@ -30,4 +33,15 @@ function initialButton() {
     runButton.onclick = start
 }
 
+async function loadImgsIn(path, imgNames) {
+    images = await Promise.all(
+        imgNames.map(async name => {
+            const file = await fetch(`${path}/${name}`).then(res => res.blob())
+            const possiblePaths = [name]
+            const url = URL.createObjectURL(file)
+            return { possiblePaths, url }
+        })
+    )
+}
 
+loadImgsIn('pepita/imgs', ['pepita.png', 'silvestre.png', 'uqbar.png'])

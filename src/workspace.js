@@ -64,6 +64,7 @@ Blockly.Blocks['actionMessageSend'] = {
             .appendField(new Blockly.FieldTextInput("receptor.mensaje(parametro)"), "MESSAGE")
         this.setInputsInline(true)
         this.setPreviousStatement(true, null)
+        this.setNextStatement(true, null)
         this.setColour(230)
     }
 }
@@ -187,12 +188,19 @@ Blockly.Wollok.valueMethod = function (block) {
 
 Blockly.inject('blockly', { toolbox, trashcan: true, scrollbars: true })
 
+
+function loadSavedWorkspace() {
+    const search = new URLSearchParams(window.location.search)
+    const serializedCode = search.get('code')
+    return atob(serializedCode)
+}
+
+const savedWorkspace =  window.location.href.includes('code') ? loadSavedWorkspace() : null
+
 const initialWorkspace =
     `<xml xmlns="http://www.w3.org/1999/xhtml">
     <block type="game" x="15" y="15"></block>
   </xml>`
 
-
-
-const initialDom = Blockly.Xml.textToDom(initialWorkspace)
+const initialDom = Blockly.Xml.textToDom(savedWorkspace || initialWorkspace)
 Blockly.Xml.domToWorkspace(initialDom, Blockly.getMainWorkspace())
