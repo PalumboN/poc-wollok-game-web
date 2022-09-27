@@ -16,6 +16,7 @@ function buildImage(file) {
 }
 
 const input = document.getElementById('input-project')
+let p5
 input.onchange = async () => {
     const files = Array.from(input.files)
     const sourceFiles = files.filter(isSourceFile)
@@ -25,5 +26,10 @@ input.onchange = async () => {
     const images = imageFiles.map(buildImage)
     const sources = await Promise.all(sourceFiles.map(buildSource))
     const project = { main, images, sounds, sources }
-    new Game(project).start(parentGame)
+   p5 = new Game(project).start(parentGame)
+}
+
+const button = document.getElementById('stop-button')
+button.onclick = () => {
+    p5.remove()
 }

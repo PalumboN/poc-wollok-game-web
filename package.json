@@ -9,6 +9,6 @@
   "dependencies": {
     "blockly": "^7.20211209.4",
     "http-server": "^14.1.0",
-    "wollok-game-web": "^1.0.6"
+    "wollok-game-web": "^1.0.7"
   }
 }
